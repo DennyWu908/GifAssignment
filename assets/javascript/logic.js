@@ -48,9 +48,9 @@ $("#add-animal").on("click", function(event) {
 	// Generating buttons for the initial array of animals.
 	createButtons();
 
-// This function will cause an animal button to bring up gifs of that animal from Giphy.
+// This function will cause an animal button to bring up gifs of that animal from Giphy. 
 
-$(".animal").on("click", function(event) {
+function createGifs() {
 
 	// Storing the name of the animal on a given button in a variable.
 
@@ -110,6 +110,10 @@ $(".animal").on("click", function(event) {
 	})
 
 })
+
+// This event listener will call the createGifs function when an animal button is clicked.
+
+$(document).on("click", ".animal", createGifs);
 
 $(".gif").on("click", function(event) {
 
