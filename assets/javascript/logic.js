@@ -7,7 +7,7 @@ var animals = ["Cats", "Dogs", "Fish", "Birds"]
 function createButtons() {
 
 	// To avoid repeating buttons, the div containing animal buttons will be emptied when this function is called.
-	$("#gif-buttons").empty();
+	// $("#gif-buttons").empty();
 
 	for (var i = 0; i < animals.length; i++) {
 
