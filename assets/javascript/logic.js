@@ -109,13 +109,13 @@ function createGifs() {
 		};
 	})
 
-})
+}
 
 // This event listener will call the createGifs function when an animal button is clicked.
 
 $(document).on("click", ".animal", createGifs);
 
-$(".gif").on("click", function(event) {
+function animateGifs() {
 
 	var currentState = $(this).attr("data-state")
 
@@ -129,4 +129,8 @@ $(".gif").on("click", function(event) {
     $(this).attr("data-state", newState)
 
     // This should allow users to switch between the static and animated versions of a given image.
-})
+}
+
+// This event listener will call the animateGifs function when an animal button is clicked.
+
+$(document).on("click", ".gif", animateGifs);
