@@ -7,7 +7,7 @@ var animals = ["Cats", "Dogs", "Fish", "Birds"]
 function createButtons() {
 
 	// To avoid repeating buttons, the div containing animal buttons will be emptied when this function is called.
-	// $("#gif-buttons").empty();
+	$("#gif-buttons").empty();
 
 	for (var i = 0; i < animals.length; i++) {
 
@@ -65,13 +65,14 @@ $(".animal").on("click", function(event) {
 
 	$.ajax({
 		url: queryURL,
-		method: GET
+		method: "GET"
 	})
 
 	.done(function(response) {
 
 		// The data returned by the API comes in the form of an array, which will be stored in the "results" variable.
 		var results = response.data
+		console.log(response)
 
 		// Looping over the "results" array and looking for pics with a G or PG rating.
 		for (var i = 0; i < results.length; i++) {
@@ -88,12 +89,12 @@ $(".animal").on("click", function(event) {
 
 				var animalImage = $("<img>");
 
-				// Creating an image tag and giving it the src of an image returned by the API.
-				animalImage.attr("src", results[i].images.fixed_height.url);
+				// Creating an image tag and giving it the src of an image returned by the API. Note that this version of the image will be static and non-animated.
+				animalImage.attr("src", results[i].images.fixed_height_still.url);
 
 				// Appending the new image and paragraph to the "gifHolder" div.
-				gifHolder.append(p);
 				gifHolder.append(animalImage);
+				gifHolder.append(p);
 
 				// Each "gifHolder" div will be prepended to a div on the webpage.
 				$("#gif-container").prepend(gifHolder)
