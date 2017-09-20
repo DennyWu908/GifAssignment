@@ -92,6 +92,13 @@ $(".animal").on("click", function(event) {
 				// Creating an image tag and giving it the src of an image returned by the API. Note that this version of the image will be static and non-animated.
 				animalImage.attr("src", results[i].images.fixed_height_still.url);
 
+				// Adding attributes and a class to each image. The "gif" class will be used as part of a event listener that will allow us to click on the images. The attributes will allow us to switch between the animated and non-animated version of each gif.
+
+				animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+				animalImage.attr("data-animate", results[i].images.fixed_height_still.url);
+				animalImage.attr("data-state", "still");
+				animalImage.addClass("gif")
+
 				// Appending the new image and paragraph to the "gifHolder" div.
 				gifHolder.append(animalImage);
 				gifHolder.append(p);
