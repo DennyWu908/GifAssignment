@@ -95,7 +95,7 @@ $(".animal").on("click", function(event) {
 				// Adding attributes and a class to each image. The "gif" class will be used as part of a event listener that will allow us to click on the images. The attributes will allow us to switch between the animated and non-animated version of each gif.
 
 				animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-				animalImage.attr("data-animate", results[i].images.fixed_height_still.url);
+				animalImage.attr("data-animate", results[i].images.fixed_height.url);
 				animalImage.attr("data-state", "still");
 				animalImage.addClass("gif")
 
@@ -109,4 +109,20 @@ $(".animal").on("click", function(event) {
 		};
 	})
 
+})
+
+$(".gif").on("click", function(event) {
+
+	var currentState = $(this).attr("data-state")
+
+	// When a gif is clicked, this function will check its "data-state" attribute. If it is currently "still", the attribute will switch to "animate", and vice versa.
+	var newState = (currentState === 'still') ? 'animate' : 'still'
+
+    var imageUrl = $(this).attr("data-" + newState)
+
+    $(this).attr("src", imageUrl)
+
+    $(this).attr("data-state", newState)
+
+    // This should allow users to switch between the static and animated versions of a given image.
 })
